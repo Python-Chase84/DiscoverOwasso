@@ -1,0 +1,490 @@
+/* Root variables and global settings */
+:root {
+  --navy: #16324f;
+  --gold: #c89b3c;
+  --white: #ffffff;
+  --soft: #f7f8fb;
+  --max-width: 1120px;
+  --body-font: Verdana, Arial, sans-serif;
+  --heading-font: Georgia, "Times New Roman", serif;
+}
+
+/* Universal box model */
+* {
+  box-sizing: border-box;
+}
+
+/* Base html behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page body */
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  color: var(--navy);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+/* Generic images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border: 3px solid var(--gold);
+}
+
+/* General hyperlinks */
+a {
+  color: var(--navy);
+}
+
+/* Shared width wrapper */
+.wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header band */
+header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 1.2rem 0 0.8rem;
+}
+
+/* Website title */
+.site-title {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+/* Header tagline */
+.tagline {
+  text-align: center;
+  margin: 0 0 0.9rem;
+}
+
+/* Navigation list */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation list item */
+nav li {
+  display: block;
+  margin: 0 0 0.55rem;
+}
+
+/* Navigation links */
+nav a {
+  display: block;
+  text-decoration: none;
+  color: var(--white);
+  background: var(--gold);
+  padding: 0.7rem 0.9rem;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+
+/* Navigation hover, focus, and active states */
+nav a:hover,
+nav a:focus,
+nav a.active {
+  background: var(--white);
+  color: var(--navy);
+}
+
+/* Main content area */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+  color: var(--navy);
+}
+
+/* Hero grid */
+.hero {
+  display: grid;
+  gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Lead paragraph */
+.lead {
+  font-size: 1.06rem;
+}
+
+/* Three-card section grid */
+.section-grid {
+  display: grid;
+  gap: 1.2rem;
+  margin: 1.5rem 0 2rem;
+}
+
+/* Content card */
+.card {
+  padding: 1rem;
+  border: 3px solid var(--gold);
+  background: var(--soft);
+}
+
+/* Card headings */
+.card h2,
+.card h3 {
+  margin-top: 0;
+}
+
+/* Flexible gallery container */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Gallery figure */
+.gallery figure {
+  margin: 0;
+  border: 3px solid var(--gold);
+  padding: 0.5rem;
+  background: var(--soft);
+}
+
+/* Gallery caption */
+.gallery figcaption {
+  padding-top: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+/* Responsive table wrapper */
+.table-wrap {
+  overflow-x: auto;
+}
+
+/* Table element */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+}
+
+/* Table caption */
+caption {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Table headers and cells */
+th,
+td {
+  border: 2px solid var(--navy);
+  padding: 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Table header row */
+th {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* Zebra striping for even body rows */
+tbody tr:nth-child(even) {
+  background: #eef2f7;
+}
+
+/* Ordered list block */
+.trip-list {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 0;
+}
+
+/* Form note */
+.form-note {
+  font-weight: bold;
+  color: var(--navy);
+}
+
+/* Required field marker */
+.required-marker {
+  color: #9c3f00;
+  font-weight: bold;
+}
+
+/* Form shell */
+form {
+  border: 3px solid var(--gold);
+  padding: 1rem;
+  background: var(--soft);
+}
+
+/* Fieldset group */
+fieldset {
+  border: 2px solid var(--navy);
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+}
+
+/* Fieldset legend */
+legend {
+  font-family: var(--heading-font);
+  font-weight: bold;
+  padding: 0 0.4rem;
+}
+
+/* Form grid */
+.form-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+/* Form row */
+.form-row {
+  display: grid;
+  gap: 0.35rem;
+}
+
+/* Form labels */
+label {
+  font-weight: bold;
+}
+
+/* Form controls */
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  padding: 0.7rem;
+  border: 2px solid var(--navy);
+  background: var(--white);
+  color: var(--navy);
+}
+
+/* Checkbox and radio groups */
+.checkbox-group,
+.radio-group {
+  display: grid;
+  gap: 0.35rem;
+}
+
+/* Action buttons */
+button {
+  background: var(--navy);
+  color: var(--white);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Button hover and focus */
+button:hover,
+button:focus {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* Button row */
+.button-row {
+  align-items: start;
+}
+
+/* Helper messages */
+.helper-text,
+#surveyStatus,
+#charCount {
+  font-size: 0.92rem;
+}
+
+/* Description list */
+dl {
+  border: 3px solid var(--gold);
+  padding: 1rem;
+  background: var(--soft);
+}
+
+/* Description term */
+dt {
+  font-weight: bold;
+  font-family: var(--heading-font);
+  margin-top: 1rem;
+}
+
+/* First description term */
+dt:first-child {
+  margin-top: 0;
+}
+
+/* Description detail */
+dd {
+  margin: 0.35rem 0 1rem 0;
+}
+
+/* Contact page layout */
+.contact-layout {
+  display: grid;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+/* Contact information box */
+.contact-box {
+  border: 3px solid var(--gold);
+  padding: 1rem;
+  background: var(--soft);
+}
+
+/* Embedded map */
+.map-frame {
+  width: 100%;
+  min-height: 320px;
+  border: 3px solid var(--gold);
+}
+
+/* Footer band */
+footer {
+  background: var(--navy);
+  color: var(--white);
+  margin-top: 2rem;
+}
+
+/* Footer inner layout */
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Social links layout */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 0.9rem;
+}
+
+/* Social links style */
+.social-links a {
+  text-decoration: none;
+  color: var(--navy);
+  background: var(--gold);
+  border: 2px solid var(--white);
+  padding: 0.45rem 0.8rem;
+  font-weight: bold;
+}
+
+/* Footer paragraphs */
+.footer-info p {
+  margin: 0.25rem 0;
+}
+
+/* Footer links */
+.footer-info a {
+  color: var(--white);
+}
+
+/* Skip link off-screen position */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Skip link focus state */
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--white);
+  color: var(--navy);
+  padding: 0.5rem 0.75rem;
+  z-index: 1000;
+}
+
+/* Desktop and tablet responsive styles */
+@media (min-width: 760px) {
+  /* Float-based navigation layout */
+  nav ul {
+    text-align: right;
+    overflow: auto;
+  }
+
+  /* Float each navigation item to the right */
+  nav li {
+    float: right;
+    margin: 0 0 0 0.65rem;
+  }
+
+  /* Clear the floated navigation */
+  nav::after {
+    content: "";
+    display: block;
+    clear: right;
+  }
+
+  /* Two-column hero layout */
+  .hero {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  /* Three-column overview layout */
+  .section-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Horizontal flexible gallery */
+  .gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  /* Gallery item width on wide screens */
+  .gallery figure {
+    flex: 1 1 calc(50% - 1rem);
+  }
+
+  /* Two-column form layout */
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
+
+  /* Form rows spanning all columns */
+  .form-row.full {
+    grid-column: 1 / -1;
+  }
+
+  /* Two-column contact layout */
+  .contact-layout {
+    grid-template-columns: 1fr 1.2fr;
+  }
+
+  /* Footer desktop layout */
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  /* Desktop spacing for social links */
+  .social-links {
+    margin-bottom: 0;
+  }
+}

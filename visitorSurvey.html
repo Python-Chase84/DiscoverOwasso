@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <!-- Head section -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Visitor Survey | Discover Owasso</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <!-- Body section -->
+  <body>
+    <a class="skip-link" href="#maincontent">Skip to main content</a>
+    <!-- Header section -->
+    <header>
+      <div class="wrapper">
+        <p class="site-title">Discover Owasso</p>
+        <p class="tagline">A welcoming Oklahoma city with community spirit, local history, and everyday fun.</p>
+        <!-- Navigation section -->
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="cityHighlights.html">City Highlights</a></li>
+            <li><a href="visitorSurvey.html" class="active">Visitor Survey</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+            <li><a href="contactUs.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Main content -->
+    <main id="maincontent">
+
+      <!-- Visitor survey section -->
+      <section>
+        <h1>Visitor Survey</h1>
+        <p class="lead">Please share your impressions of Owasso. Required fields are marked with <span class="required-marker" aria-hidden="true">*</span>.</p>
+        <p class="form-note">This form uses the POST method to submit visitor feedback.</p>
+        <!-- Survey form -->
+        <form id="visitorForm" action="https://httpbin.org/post" method="post">
+          <!-- Visitor information fieldset -->
+          <fieldset>
+            <legend>Visitor Information</legend>
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="firstName">First name <span class="required-marker" aria-hidden="true">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+              </div>
+              <div class="form-row">
+                <label for="lastName">Last name <span class="required-marker" aria-hidden="true">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+              </div>
+              <div class="form-row">
+                <label for="homeCity">Home city</label>
+                <input type="text" id="homeCity" name="homeCity" placeholder="Your hometown or city">
+              </div>
+              <div class="form-row">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone" placeholder="918-555-0101" pattern="[0-9\-\(\)\s]+">
+              </div>
+              <div class="form-row">
+                <label for="email">Email address <span class="required-marker" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+              </div>
+              <div class="form-row">
+                <label for="visitDate">Date of visit</label>
+                <input type="date" id="visitDate" name="visitDate">
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Visit preferences fieldset -->
+          <fieldset>
+            <legend>Visit Preferences</legend>
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="reason">Main reason for visiting <span class="required-marker" aria-hidden="true">*</span></label>
+                <select id="reason" name="reason" required>
+                  <option value="">Select one</option>
+                  <option>Family visit</option>
+                  <option>Shopping</option>
+                  <option>Dining</option>
+                  <option>Community event</option>
+                  <option>Passing through</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="rating">Overall rating (1-10) <span class="required-marker" aria-hidden="true">*</span></label>
+                <input type="number" id="rating" name="rating" min="1" max="10" required>
+              </div>
+              <div class="form-row full">
+                <label for="recommendRange">How likely are you to recommend Owasso? (0-10)</label>
+                <input type="range" id="recommendRange" name="recommendRange" min="0" max="10" value="5">
+                <p class="helper-text">Move the slider from 0 for not likely to 10 for very likely.</p>
+              </div>
+              <div class="form-row full">
+                <span id="favoriteLabel"><strong>Favorite part of Owasso</strong></span>
+                <div class="radio-group" role="radiogroup" aria-labelledby="favoriteLabel">
+                  <label><input type="radio" name="favorite" value="Parks" required> Parks and recreation</label>
+                  <label><input type="radio" name="favorite" value="History"> History and landmarks</label>
+                  <label><input type="radio" name="favorite" value="Shopping"> Shopping and dining</label>
+                </div>
+              </div>
+              <div class="form-row full">
+                <span id="interestLabel"><strong>What activities interested you?</strong> <span class="required-marker" aria-hidden="true">*</span></span>
+                <div class="checkbox-group" role="group" aria-labelledby="interestLabel">
+                  <label><input type="checkbox" name="interests" value="Events"> Community events</label>
+                  <label><input type="checkbox" name="interests" value="Parks"> Parks</label>
+                  <label><input type="checkbox" name="interests" value="Restaurants"> Restaurants</label>
+                  <label><input type="checkbox" name="interests" value="Shopping"> Shopping</label>
+                </div>
+                <p class="helper-text">Please choose at least one activity.</p>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Comments fieldset -->
+          <fieldset>
+            <legend>Comments</legend>
+            <div class="form-grid">
+              <div class="form-row full">
+                <label for="comments">Share one thing you enjoyed most.</label>
+                <textarea id="comments" name="comments" rows="5" maxlength="220" aria-describedby="charCount"></textarea>
+                <p id="charCount">220 characters remaining.</p>
+              </div>
+              <div class="form-row button-row full">
+                <button type="submit">Submit Survey</button>
+                <button type="reset">Reset Form</button>
+                <p id="surveyStatus" aria-live="polite"></p>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+    <!-- JavaScript for form interactivity -->
+    <script>
+      // Cache the form and helper elements.
+      const form = document.getElementById('visitorForm');
+      const comments = document.getElementById('comments');
+      const charCount = document.getElementById('charCount');
+      const surveyStatus = document.getElementById('surveyStatus');
+
+      // Update the character counter while the visitor types.
+      comments.addEventListener('input', function () {
+        const remaining = 220 - comments.value.length;
+        charCount.textContent = remaining + ' characters remaining.';
+      });
+
+      // Validate that at least one checkbox is selected before submitting.
+      form.addEventListener('submit', function (event) {
+        const checked = document.querySelectorAll('input[name="interests"]:checked');
+        if (checked.length === 0) {
+          event.preventDefault();
+          surveyStatus.textContent = 'Please choose at least one activity before submitting the form.';
+          surveyStatus.style.fontWeight = 'bold';
+        } else {
+          surveyStatus.textContent = 'Form is ready to submit.';
+        }
+      });
+
+      // Clear the status message when the form is reset.
+      form.addEventListener('reset', function () {
+        surveyStatus.textContent = '';
+        charCount.textContent = '220 characters remaining.';
+      });
+    </script>
+    </main>
+    <!-- Footer section -->
+    <footer>
+      <div class="footer-inner">
+        <div class="social-links" aria-label="Social media links">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" title="Open Facebook in a new tab">Facebook</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" title="Open Instagram in a new tab">Instagram</a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" title="Open YouTube in a new tab">YouTube</a>
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2026 Discover Owasso</p>
+          <p>Email: <a href="mailto:info@discoverowasso.com">info@discoverowasso.com</a></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
